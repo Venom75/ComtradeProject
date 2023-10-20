@@ -2,7 +2,7 @@
 using ComtradeProject.Model;
 using System.Security.Claims;
 
-namespace RankoNikolic.Services
+namespace ComtradeProject.Services
 {
     public interface IAgentService
     {
@@ -11,7 +11,6 @@ namespace RankoNikolic.Services
         Task<RegisterResponseDTO> Register(RegisterDTO register);
         Task<PersonDTO> AddReward(string personId, int agentId, string reward);
         Task<string> WriteToCsv();
-
 
     }
 }
