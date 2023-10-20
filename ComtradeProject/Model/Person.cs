@@ -1,4 +1,4 @@
-﻿namespace RankoNikolic.Model
+﻿namespace ComtradeProject.Model
 {
     public class Person
     {
