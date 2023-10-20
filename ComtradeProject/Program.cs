@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ComtradeProject.Database;
 using System.Text;
+using ComtradeProject.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DBContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("ProjectContext"));
 });
+
+builder.Services.AddScoped<IAgentRepository, AgentRepository>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
 var app = builder.Build();
 
