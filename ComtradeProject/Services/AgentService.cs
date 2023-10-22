@@ -126,7 +126,7 @@ namespace ComtradeProject.Services
             {
                 csv.WriteRecords(records);
             }
-            return "Succesfully maked report!";
+            return "Report successfully created!";
         }
     }
 }
