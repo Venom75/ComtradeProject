@@ -373,3 +373,4 @@ C:\Users\RankoNikolic\source\repos\ComtradeProject\ComtradeProject\obj\Debug\net
 C:\Users\RankoNikolic\source\repos\ComtradeProject\ComtradeProject\obj\Debug\net6.0\ComtradeProject.pdb
 C:\Users\RankoNikolic\source\repos\ComtradeProject\ComtradeProject\obj\Debug\net6.0\ComtradeProject.genruntimeconfig.cache
 C:\Users\RankoNikolic\source\repos\ComtradeProject\ComtradeProject\obj\Debug\net6.0\ref\ComtradeProject.dll
+C:\Users\RankoNikolic\source\repos\ComtradeProject\ComtradeProject\bin\Debug\net6.0\Connected Services\ServiceReference\ConnectedService.json
