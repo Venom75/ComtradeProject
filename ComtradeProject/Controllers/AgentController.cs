@@ -66,7 +66,7 @@ namespace ComtradeProject.Controllers
         }
 
         [Authorize]
-        [HttpGet("get-report")]
+        [HttpGet("generate-report")]
         public async Task<IActionResult> GetReport()
         {
 

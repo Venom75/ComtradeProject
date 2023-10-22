@@ -78,6 +78,7 @@ namespace ComtradeProject
 
             builder.Services.AddScoped<IAgentRepository, AgentRepository>();
             builder.Services.AddScoped<IAgentService, AgentService>();
+            builder.Services.AddScoped<IReportService, ReportService>();
 
             builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 
