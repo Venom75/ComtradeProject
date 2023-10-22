@@ -59,10 +59,7 @@ namespace ComtradeProject.Migrations
             modelBuilder.Entity("ComtradeProject.Model.Person", b =>
                 {
                     b.Property<int>("PersonId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PersonId"));
 
                     b.Property<string>("Name")
                         .IsRequired()

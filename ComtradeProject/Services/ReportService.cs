@@ -17,7 +17,28 @@ namespace ComtradeProject.Services
 {
     public class ReportService : IReportService
     {
-        public async Task<List<RewardedPersonDTO>> ReadFromCsv(string filePath)
+        private readonly SOAPDemoSoapClient _soapClient;
+        string filePath = "Reports/report.csv";
+
+        public ReportService(SOAPDemoSoapClient soapClient)
+        {
+            _soapClient = soapClient;
+        }
+
+        public async Task<List<CombinedPersonDTO>> CombinedPerson()
+        {
+            List<RewardedPersonDTO> list = ReadFromCsv();
+            List<CombinedPersonDTO> combinedList = new List<CombinedPersonDTO>();
+            foreach (var person in list) {
+                combinedList.Add(new CombinedPersonDTO() { 
+                    CombinedPerson = await _soapClient.FindPersonAsync(person.PersonId.ToString()), 
+                    Reward = person.Reward
+                });
+            }
+            return combinedList;
+        }
+  
+        public List<RewardedPersonDTO> ReadFromCsv()
         {
             using (var reader = new StreamReader(filePath))
             using (var csv = new CsvReader(reader, new CsvConfiguration(CultureInfo.InvariantCulture)))

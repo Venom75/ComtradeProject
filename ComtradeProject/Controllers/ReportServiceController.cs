@@ -13,18 +13,17 @@ namespace ComtradeProject.Controllers
     public class ReportServiceController : ControllerBase
     {
         private readonly IReportService _reportService;
-        string filePath = "Reports/report.csv";
         public ReportServiceController(IReportService reportService)
         {
             _reportService = reportService;
         }
 
         [HttpGet("read-from-csv")]
-        public IActionResult GetCsvData()
+        public async Task<IActionResult> GetCsvData()
         {
             try
             {
-                return Ok(_reportService.ReadFromCsv(filePath));
+                return Ok(await _reportService.CombinedPerson());
             }
             catch (Exception e)
             {

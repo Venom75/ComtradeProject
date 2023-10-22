@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ComtradeProject.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20231020082918_init")]
+    [Migration("20231022202405_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -62,10 +62,7 @@ namespace ComtradeProject.Migrations
             modelBuilder.Entity("ComtradeProject.Model.Person", b =>
                 {
                     b.Property<int>("PersonId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PersonId"));
 
                     b.Property<string>("Name")
                         .IsRequired()

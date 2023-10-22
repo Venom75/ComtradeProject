@@ -6,6 +6,7 @@ namespace ComtradeProject.Services
 {
     public interface IReportService
     {
-        Task<List<RewardedPersonDTO>> ReadFromCsv(string filePath);
+        List<RewardedPersonDTO> ReadFromCsv();
+        Task<List<CombinedPersonDTO>> CombinedPerson();
     }
 }

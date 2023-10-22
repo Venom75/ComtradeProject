@@ -33,8 +33,7 @@ namespace ComtradeProject.Migrations
                 name: "Persons",
                 columns: table => new
                 {
-                    PersonId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PersonId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SSN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Reward = table.Column<string>(type: "nvarchar(max)", nullable: false)

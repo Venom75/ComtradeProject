@@ -37,6 +37,10 @@ namespace ComtradeProject.Services
             var person = await _soapClient.FindPersonAsync(personId);
             var personrep = await _personRepository.GetById(Int32.Parse(personId));
 
+            if (personrep != null)
+            {
+                throw new Exception("You can not add two rewards for same Person!");
+            }
             if (agent.LastReward == null || agent.FirstReward == null || (agent.LastReward.Value - agent.FirstReward.Value).TotalHours >= 24)
             {
                 agent.FirstReward = DateTime.Now;
@@ -52,16 +56,13 @@ namespace ComtradeProject.Services
             {
                 throw new Exception("You do not have more rewards for today!");
             }
-            if(personrep != null)
-            {
-                throw new Exception("You can not add two rewards for same Person!");
-            }
 
             _agentRepository.Update(agent);
 
             var updatedPerson = _mapper.Map<Model.Person>(person);
             updatedPerson.Reward = reward;
-            _personRepository.Update(updatedPerson);
+            updatedPerson.PersonId = Int32.Parse(personId);
+            await _personRepository.Insert(updatedPerson);
 
             var personDTO = _mapper.Map<PersonDTO>(updatedPerson);
             personDTO.AgentRewards = agent.RewardCount;
