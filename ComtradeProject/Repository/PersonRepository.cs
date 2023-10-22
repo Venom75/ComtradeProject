@@ -31,5 +31,9 @@ namespace ComtradeProject.Repository
             _dbContext.Persons.Update(newPerson);
             _dbContext.SaveChanges();
         }
+        public async Task<Person> GetById(int id)
+        {
+            return await _dbContext.Persons.FirstOrDefaultAsync(u => u.PersonId == id);
+        }
     }
 }

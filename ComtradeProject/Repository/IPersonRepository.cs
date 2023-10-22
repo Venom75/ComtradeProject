@@ -7,5 +7,6 @@ namespace ComtradeProject.Repository
         Task<Person> Insert(Person person);
         void Update(Person person);
         Task<List<Person>> GetAll();
+        Task<Person> GetById(int id);
     }
 }
